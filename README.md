@@ -1,4 +1,6 @@
 #TOLH15 Review
+
+# First hour
 ## Linux (mostly just questions)
 * Shell
 Commands
@@ -6,7 +8,6 @@ Commands
 * `cat`, `less`, `head`, `tail`, `grep`, `sort`, `cut`, `uniq`
 * `chmod`
 
-# First hour
 ## Bits and Bytes
 * `&` `|` `^` `~` `<<` `>>`
 * Pointers
