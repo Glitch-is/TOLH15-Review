@@ -1,0 +1,8 @@
+ int x = -5
+ unsigned ux = x
+ ________________________________________________________________________
+ Expression | 4 bit Decimal | 4 bit Binary | 6 bit Decimal | 6 bit Binary
+    -8      |    -8         |    1000      |      -8       |    111000
+   -Tmin    |     N/A       |      N/A     |     N/A       |     N/A
+  -x >> 1   |      2        |    0010      |       2       |   000010
+ (x^1) >> 2 |      2        |    0010      |       14      |   001110

@@ -1,0 +1,27 @@
+Make a stack frame diagram with:
+• any arguments to the function foo
+• the return address
+• Any registers stored on the stack by the asm fragment (register names not values)
+• The location on the stack pointed to by %esp and %ebp after the exection of the sub instruction.
+=================================================================================================
+
+int foo(int a, int b, int c, int d);
+    push %ebp
+    mov %esp, %ebp
+    push %ebx
+    sub $0x10,%esp
+    movl $0xdeadbeef, -4(%ebp)
+
+           ______________
+0xFFFFD600 | int d       | <- Start your argument build area here
+           | int c       |
+           | int b       |
+           | int a       |
+           | Return addr |
+           | Old %ebp    | <- %ebp
+           | %ebx        | <- Overwrite with 0xdeadbeef
+           |             |
+           |             |
+           |             |
+           |             | <- %esp
+           ===============

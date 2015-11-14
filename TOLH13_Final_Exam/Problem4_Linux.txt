@@ -1,0 +1,29 @@
+A.
+    a)
+        S: 0
+        S: 1
+        S: 2
+    b)
+        E: 0
+        E: 1
+        E: 2
+
+B. 53:steven.white
+We start by grepping the second line due to it being the only line containing the string "d49".
+
+cat records.txt | grep d49
+Thu Aug 1 07:53:01 GMT 2013 *OK* user:steven.white door:d49
+
+Then we cut the string with the delimiter ':', this will give us the following array
+[Thu Aug 1 07 , 53 , 01 GMT 2013 *OK* user , steven.white door , d49]
+and then we retrieve the 2nd and the 4th element (not starting from 0, because 0 is the whole string) and we concatenate them with the delimiter
+
+cat records.txt | grep d49 | cut -d’:’ -f 2,4
+53:steven.white door
+
+then we use cut with the delimiter space which will give us the following array
+[53:steven.white , door]
+and we retrieve the first element and get
+
+cat records.txt | grep d49 | cut -d’:’ -f 2,4 | cut -d’ ’ -f 1
+53:steven.white

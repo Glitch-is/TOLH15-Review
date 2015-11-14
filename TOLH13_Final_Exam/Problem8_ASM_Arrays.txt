@@ -1,0 +1,39 @@
+Array index formula:
+A[i][j]
+A + (i*C + j) * k
+C = Column size
+K = Size of datatype
+=========================
+
+int array1[M][N];
+int array2[N][M];
+void copy(int i, int j)
+{
+    array1[i][j] = array2[j][i];
+}
+======================================
+
+copy:
+pushl %ebp                    # Function prologue
+movl %esp,%ebp                # Function prologue
+pushl %ebx                    # %ebx is callee safe
+
+movl 8(%ebp),%ecx             # %ecx = i
+movl 12(%ebp),%eax            # %eax = j
+leal 0(,%eax,4),%ebx          # %ebx = j * 4
+leal 0(,%ecx,8),%edx          # %edx = i * 8
+subl %ecx,%edx                # %edx = i * 8 - i -> %edx = i * 7
+addl %ebx,%eax                # %eax = j * 4 + j -> %eax = j * 5
+sall $2,%eax                  # %eax = (j * 5) * 2^2 -> 4(j * 5)
+movl array2(%eax,%ecx,4),%eax # %eax = array2 + (5j + i) * 4
+movl %eax,array1(%ebx,%edx,4) # array1 + (j + 7i) * 4 = %eax
+
+popl %ebx                     # reset %ebx cuz it's calle safe
+movl %ebp,%esp                # Function epilogue
+popl %ebp                     # Function epilogue
+ret                           # return
+
+=========================================================
+
+M = 5
+N = 7

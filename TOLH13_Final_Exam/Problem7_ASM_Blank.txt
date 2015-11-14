@@ -1,0 +1,37 @@
+foo:
+pushl %ebp             ; Function prologue
+movl %esp,%ebp         ; Function prologue
+pushl %ebx             ; Callee safe register
+
+movl 8(%ebp),%ebx      ; %ebx = a
+leal 2(%ebx),%edx      ; %edx = 2 + a
+xorl %ecx,%ecx         ; %ecx = 0  -> i
+cmpl %ebx,%ecx         ;
+jge .L4                ; %ecx >= %ebx  -> i >= a
+.L6:
+leal 5(%ecx,%edx),%edx ; result += 5 + i
+leal 3(%ecx),%eax      ; %eax = 3 + i
+imull %eax,%edx        ; result *= 3 + i
+incl %ecx              ; %ecx += 1 -> i++
+cmpl %ebx,%ecx         ;
+jl .L6                 ; %ecx < %ebx -> i < a
+.L4:
+movl %edx,%eax         ; return %edx  ->  return result
+
+popl %ebx              ; Reset callee safe register
+movl %ebp,%esp         ; Function epilogue
+popl %ebp              ; Function epilogue
+ret                    ; return
+
+=================================================
+
+int foo(int a)
+{
+    int i;
+    int result = 2 + a;
+    for( i = 0; i < a; i++ ) {
+        result += 5 + i;
+        result *= 3 + i;
+    }
+    return result;
+}

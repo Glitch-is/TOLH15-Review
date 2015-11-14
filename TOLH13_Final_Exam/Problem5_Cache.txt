@@ -1,0 +1,28 @@
+Part 1.
+m = 2^13 = 2^10 * 2^3
+         = KiB  * 8
+         = 8 KiB
+
+E = 2
+
+B = log2(4) = 2
+
+S = log2(16/2)
+S = log2(8) = 3
+
+[tag][index][offset]
+ttttttttiiioo
+
+=======================
+
+Part 2.
+
+t ttt tttt iii oo
+0 111 0001 101 00
+0  E     3    4
+
+offset = 0x0
+index  = 0x5
+tag    = 0x71
+Hit?   = Y
+Byte   = 0x0B

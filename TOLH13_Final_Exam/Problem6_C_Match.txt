@@ -1,0 +1,21 @@
+foo1:
+%eax = x
+%eax = %eax << 2^4 = %eax * 16
+%eax = %eax - x = x * 16 - x
+return x * 15
+foo1 corresponds to choice 3
+
+=================================
+foo2:
+%eax = x
+if(x < 0)
+    return x + 15
+else
+    return x / 2^4
+foo2 corresponds to choice 5
+
+==================================
+foo3:
+%eax = x
+return x >> 31
+foo3 corresponds to choice 6
