@@ -1,0 +1,15 @@
+A. b
+B. c
+C. d
+D. d
+E. b
+F. a
+G. c
+H. c
+I. a
+J. d
+K. d
+L. c
+M. d
+N. a
+Y. y

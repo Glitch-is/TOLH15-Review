@@ -18,4 +18,4 @@ foo2 corresponds to choice 5
 foo3:
 %eax = x
 return x >> 31
-foo3 corresponds to choice 6
+foo3 corresponds to choice 1

@@ -1,0 +1,10 @@
+ ___________________________
+ Description                    | Number
+ Unsigned Max                   | 111111 = 2^6-1
+   Tmin                         | 100000 = -2^5
+ (unsigned)((int)4)             | 4
+ (unsigned)((int)7)             | 7
+((((unsigned)0x21) << 1) & 0x3F)| 2
+(int(20+12))                    | -32
+12 && 4                         | 1
+(!0x15) > 16                    | 0
