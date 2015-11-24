@@ -1,0 +1,5 @@
+uint frac_part(uint x){
+    uint mask = ~0
+    return x & (mask >> 9) ;
+    // return x & 0x003FFFFF; // If large constans are allowed
+}
